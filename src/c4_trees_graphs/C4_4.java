@@ -1,4 +1,4 @@
-package chapter4.tree.graph;
+package c4_trees_graphs;
 
 import java.util.LinkedList;
 
@@ -11,11 +11,6 @@ import java.util.LinkedList;
  *         Created May 27, 2012.
  */
 public class C4_4 {
-	private class Node{
-		protected Node left;
-		protected Node right;
-		protected String content;
-	}
 	
 	public LinkedList<LinkedList<Node>> buildLinkedList(Node root){
 		if(root == null)

@@ -1,4 +1,4 @@
-package chapter4.tree.graph;
+package c4_trees_graphs;
 
 /**
  * TODO Put here a description of what this class does.
