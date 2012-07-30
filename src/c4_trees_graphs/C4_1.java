@@ -17,12 +17,12 @@ import java.util.List;
  *         Created Jul 29, 2012.
  */
 public class C4_1 {
-	public List<List<Node>> buildLinkedList(Node root){
-		List<List<Node>> builtList = new LinkedList<List<Node>>();
+	public List<List<NodeBinaryTree>> buildLinkedList(NodeBinaryTree root){
+		List<List<NodeBinaryTree>> builtList = new LinkedList<List<NodeBinaryTree>>();
 		if(root == null)
 			return builtList;
-		List<Node> prevLvlNodes = new LinkedList<Node>();
-		List<Node> currLvlNodes = prevLvlNodes;
+		List<NodeBinaryTree> prevLvlNodes = new LinkedList<NodeBinaryTree>();
+		List<NodeBinaryTree> currLvlNodes = prevLvlNodes;
 		prevLvlNodes.add(root);
 		builtList.add(currLvlNodes);
 		while((currLvlNodes = this.getNextLvlNodes(prevLvlNodes)).size() > 0){
@@ -32,11 +32,11 @@ public class C4_1 {
 		return builtList;
 	}
 	
-	private List<Node> getNextLvlNodes(List<Node> prevLvlNodes){
-		List<Node> nextLvlNodes = new LinkedList<Node>();
+	private List<NodeBinaryTree> getNextLvlNodes(List<NodeBinaryTree> prevLvlNodes){
+		List<NodeBinaryTree> nextLvlNodes = new LinkedList<NodeBinaryTree>();
 		if(prevLvlNodes == null)
 			return nextLvlNodes;
-		for(Node node : prevLvlNodes){
+		for(NodeBinaryTree node : prevLvlNodes){
 			if(node.left != null)
 				nextLvlNodes.add(node.left);
 			if(node.right != null)
@@ -46,9 +46,9 @@ public class C4_1 {
 	}
 	
 	public static void main(String[] args){
-		Node[] nodes = new Node[10];
+		NodeBinaryTree[] nodes = new NodeBinaryTree[10];
 		for(int i = 0 ; i < 10 ; i++){
-			nodes[i] = new Node();
+			nodes[i] = new NodeBinaryTree();
 			nodes[i].content = Integer.toString(i);
 		}
 		nodes[0].left = nodes[1];
@@ -67,9 +67,9 @@ public class C4_1 {
 		nodes[6].left = nodes[9];
 		
 		C4_1 builder = new C4_1();
-		List<List<Node>> builtList = builder.buildLinkedList(nodes[0]);
-		for(List<Node> list : builtList){
-			for(Node node : list){
+		List<List<NodeBinaryTree>> builtList = builder.buildLinkedList(nodes[0]);
+		for(List<NodeBinaryTree> list : builtList){
+			for(NodeBinaryTree node : list){
 				System.out.print(node.content);
 			}
 			System.out.println();

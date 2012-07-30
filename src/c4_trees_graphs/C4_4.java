@@ -3,7 +3,7 @@ package c4_trees_graphs;
 import java.util.LinkedList;
 
 /**
- * TODO 
+ * Problem 
  * Given a binary search tree, design an algorithm which creates a linked list of all the nodes at each depth
  * If you have a tree with depth D, you'll have D linked lists
  *
@@ -12,17 +12,17 @@ import java.util.LinkedList;
  */
 public class C4_4 {
 	
-	public LinkedList<LinkedList<Node>> buildLinkedList(Node root){
+	public LinkedList<LinkedList<NodeBinaryTree>> buildLinkedList(NodeBinaryTree root){
 		if(root == null)
 			return null;
-		LinkedList<LinkedList<Node>> builtLinkedList = new LinkedList<LinkedList<Node>>();
-		LinkedList<Node> tmpList = new LinkedList<Node>();
+		LinkedList<LinkedList<NodeBinaryTree>> builtLinkedList = new LinkedList<LinkedList<NodeBinaryTree>>();
+		LinkedList<NodeBinaryTree> tmpList = new LinkedList<NodeBinaryTree>();
 		tmpList.add(root);
 		builtLinkedList.add(tmpList);
 		while(true){
-			LinkedList<Node> nextLevelList = new LinkedList<Node>();
+			LinkedList<NodeBinaryTree> nextLevelList = new LinkedList<NodeBinaryTree>();
 			for(int i = 0; i < tmpList.size(); i++){
-				Node tmpNode = tmpList.get(i);
+				NodeBinaryTree tmpNode = tmpList.get(i);
 				if(tmpNode.left != null){
 					nextLevelList.add(tmpNode.left);
 				}
