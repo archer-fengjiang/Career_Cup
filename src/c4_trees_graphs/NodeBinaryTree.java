@@ -10,5 +10,6 @@ package c4_trees_graphs;
 public class NodeBinaryTree{
 	public NodeBinaryTree left;
 	public NodeBinaryTree right;
+	public NodeBinaryTree parent;
 	public String content;
 }
