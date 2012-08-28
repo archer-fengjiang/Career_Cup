@@ -1,0 +1,39 @@
+package amazon;
+
+import java.util.LinkedList;
+import java.util.List;
+
+/**
+ * Given an array of n integers, 
+ * find 3 elements such that a[i] < a[j] < a[k] and i < j < k in 0(n) time.
+ *
+ * @author Fengjiang.
+ *         Created Aug 17, 2012.
+ */
+public class Amazon_1 {
+    public class Result{
+        public int i;
+        public int j;
+        public int k;
+
+        public Result(int i, int j, int k){
+            this.i = i;
+            this.j = j;
+            this.k = k;
+        }
+    }
+
+    public List<Result> getThreeElements(int[] array){
+        List<Result> resultList = new LinkedList<Result>();
+        int max = Integer.MAX_VALUE;
+        int min = Integer.MIN_VALUE;
+        System.out.println(max + ":" +min);
+    
+    }
+    
+    public static void main(String[] args){
+    	int max = Integer.MAX_VALUE;
+        int min = Integer.MIN_VALUE;
+        System.out.println(max + ":" +min);
+    }
+}

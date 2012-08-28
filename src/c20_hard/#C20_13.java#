@@ -1,0 +1,146 @@
+package c20_hard;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ * Given a dictionary of millions of words, give an algorithm to find the 
+ * largest possible rectangle of letters such that every row forms a word 
+ * (reading left to right) and every column forms a word (reading top to bottom)
+ *
+ * @author Fengjiang.
+ *         Created Aug 24, 2012.
+ */
+public class C20_13 {
+    private Map<Integer, Set<String>> wordMap = new HashMap<Integer, Set<String>>();
+    private Map<Integer, Set<String>> prefixMap = new HashMap<Integer, Set<String>>();
+    private Set<Integer> lengthSet = new HashSet<Integer>();
+    private int[] sortedLengthArray;
+    private int maxLength = 0;
+    private int maxSpace = 0;
+
+    private class Pair{
+        public int a;
+        public int b;
+        public Pair(int a, int b){
+            this.a = a;
+            this.b = b;
+        }
+    }
+
+    private List<Pair> defactor(int space){
+        List<Pair> pairList = new LinkedList<Pair>();
+        double bound = Math.pow(space, 0.5);
+        for(int i = 0; i <= this.sortedLengthArray.length && this.sortedLengthArray[i] <= bound; i++){
+            int length = this.sortedLengthArray[i];
+            if(space % length == 0 && lengthSet.contains(space / length)){
+                Pair pair = new Pair(length, space / length);
+                pairList.add(pair);
+            }
+        }
+        return pairList;
+    }
+
+    private void preProcessDict(String[] dict){
+        for(int i = 0; i < dict.length; i++){
+            String tmpStr = dict[i];
+            Set wordSet;
+            if(this.wordMap.containsKey(tmpStr.length())){
+                wordSet = wordMap.get(tmpStr.length());
+            } else {
+                wordSet = new HashSet<String>();
+            }
+            wordSet.add(tmpStr);
+            lengthSet.add(tmpStr.length());
+            this.maxLength = Math.max(maxLength, tmpStr.length());
+        }
+
+        // sort lenght set
+        Integer[] lengthArray = (Integer[])this.lengthSet.toArray();
+        this.sortedLengthArray = new int[lengthArray.length];
+        for(int i = 0; i < lengthArray.length; i++){
+            this.sortedLengthArray[i] = lengthArray[i];
+        }
+        Arrays.sort(this.sortedLengthArray);
+
+        // Generate prefix map
+        Set keySet = wordMap.keySet();
+        Iterator itr = keySet.iterator();
+        while(itr.hasNext()){
+            int length = (Integer)itr.next();
+            Set<String> wordSet = wordMap.get(length);
+            Set<String> prefixSet = new HashSet<String>();
+            Iterator subItr = wordSet.iterator();
+            while(subItr.hasNext()){
+                String word = (String)subItr.next();
+                String prefix = word.substring(0,2);
+                prefixSet.add(prefix);
+            }
+            prefixMap.put(length, prefixSet);
+        }
+    }
+
+    private String[] buildRectangle(Pair pair){
+    	Set firstSet;
+        Set SecondSet;
+        String[] strArr;
+        if(this.validate(pair)){
+            firstSet = this.wordMap.get(pair.a);
+            SecondSet = this.wordMap.get(pair.b);
+            strArr = firstSet.toArray();
+            for(int)
+    	}
+    }
+
+    /**
+     * return true if there are any word combination 
+     * that could pass first two char check
+     */
+    private boolean validate(Pair pair){
+        Set firstSet = wordMap.get(pair.a);
+        Set secondSet = prefixMap.get(pair.b);
+        Iterator itr1 = firstSet.iterator();
+        Iterator itr2 = firstSet.iterator();
+        while(itr1.hasNext()){
+            String str1 = (String)itr1.next();
+            while(itr2.hasNext()){
+                String str2 = (String)itr2.next();
+                for(int i = 0; i < str2.length(); i++){
+                    String testString = new String();
+                    testString = testString + str1.charAt(i) + str2.charAt(i);
+                    if(secondSet.contains(testString)){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public String[] getRectangle(String[] dict){
+        this.preProcessDict(dict);
+        this.maxSpace = this.maxLength * this.maxLength;
+        for(int i = maxSpace; i > 0; i--){
+            List<Pair> pairList = this.defactor(i);
+            if(!pairList.isEmpty()){
+                for(Pair pair : pairList){
+                    String[] rect = this.buildRectangle(pair);
+                    if(rect != null || rect.length > 0){
+                        return rect;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+    
+    public static void main(String[] args){
+        
+    }
+}
