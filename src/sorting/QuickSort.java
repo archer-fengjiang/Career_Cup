@@ -3,7 +3,7 @@ package sorting;
 /**
  * Quick Sort:
  * 
- * An improvement of bubble sort. T(n) = knlnn, k is some constant
+ * An improvement of bubble sort. T(n) = knln(n), k is some constant
  * Quick sort is the best in-place sorting method
  *
  * @author Fengjiang.
@@ -33,7 +33,7 @@ public class QuickSort {
 			while(arr[j] > pivot ){
 				j--;
 			}
-			if(i <= j){
+			if(i <= j){//easy to forget, think what if low to high happens to be sorted
 				this.exchange(i, j);
 				i++;
 				j--;
@@ -56,7 +56,7 @@ public class QuickSort {
 	
 	public static void main(String[] args){
 		QuickSort quickSort = new QuickSort();
-		int[] arr = {5,4,3,2,1};
+		int[] arr = {1,4,10,8,1,2,5};
 		arr = quickSort.quickSort(arr);
 		for(int i = 0; i < arr.length; i++){
 			System.out.println(arr[i]);

@@ -1,0 +1,5 @@
+1. 	Given a array, find the largest contiguous sub-array having its sum equal to N. ( optimal solution only)
+
+2. 	A semi-connected graph is a graph that for each pair of vertices u,v, 
+	there is either a path from u to v or a path from v to u. 
+	Give an algorithm to test if a graph is semi-connected.

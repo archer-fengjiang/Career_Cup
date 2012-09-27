@@ -37,7 +37,7 @@ public class C20_11 {
                     continue;
                 }
                 int maxLengthDif = col - row;
-                for(int dif = 1; dif <= maxLengthDif; dif++){
+                for(int dif = 1; dif <= maxLengthDif && dif > maxDif; dif++){
                     if(matrix[row][col - dif] == 1 && matrix[row + dif][col - dif] == 1 && matrix[row + dif][col] == 1){
                         if(dif > maxDif){
                             maxDif = dif;
