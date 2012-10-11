@@ -31,6 +31,6 @@ public class Sqrt {
 		Sqrt sqrt = new Sqrt();
 		System.out.println(sqrt.sqrt(6.25));
 		System.out.println(sqrt.sqrt(2));
-		
+		System.out.println(sqrt.sqrt(0.625));
 	}
 }
