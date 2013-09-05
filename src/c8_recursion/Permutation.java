@@ -1,4 +1,4 @@
-package Chapter_8_Recursion;
+package c8_recursion;
 import java.util.*;
 /*8.4*/
 public class Permutation {

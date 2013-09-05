@@ -1,4 +1,4 @@
-package Chapter_9_Sorting_Searching;
+package c9_sorting_searching;
 
 public class BinarySearchEmptyInterspersed {
 	public static int binarySearch(String[] array, String target){

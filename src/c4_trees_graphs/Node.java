@@ -11,7 +11,12 @@ public class Node{
 	public Node left;
 	public Node right;
 	public String content;
+	
 	public Node(){
 		content = null;
+	}
+	
+	public Node(String str){
+		content = str;
 	}
 }

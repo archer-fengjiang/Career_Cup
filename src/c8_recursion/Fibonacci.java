@@ -1,4 +1,4 @@
-package Chapter_8_Recursion;
+package c8_recursion;
 public class Fibonacci{
 	public int RecurFibo(int n){
 		if(n==0){

@@ -13,6 +13,6 @@ public class LongestCommonSequence {
 		}
 		int pos1 = 0;
 		int pos2 = 0;
-		for()
+		return null;
 	}
 }

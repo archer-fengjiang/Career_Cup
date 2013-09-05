@@ -1,4 +1,4 @@
-package Chapter_9_Sorting_Searching;
+package c9_sorting_searching;
 
 public class RotateBinarySearch {
 	public static int search(int[] array, int target){

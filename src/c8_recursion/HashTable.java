@@ -1,4 +1,4 @@
-package Chapter_8_Recursion;
+package c8_recursion;
 import java.util.*;
 import java.lang.*;
 public class HashTable {

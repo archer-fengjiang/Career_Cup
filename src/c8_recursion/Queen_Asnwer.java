@@ -1,4 +1,4 @@
-package Chapter_8_Recursion;
+package c8_recursion;
 
 public class Queen_Asnwer {
 	int[] columInRow = new int[8];

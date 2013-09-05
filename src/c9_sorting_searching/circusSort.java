@@ -1,9 +1,4 @@
-package Chapter_9_Sorting_Searching;
+package c9_sorting_searching;
 import java.util.*;
 public class circusSort {
-	ArrayList<int[]> member = new ArrayList<int[]>();
-	public 
-	
-	
-	
 }

@@ -94,6 +94,7 @@ public class C20_13 {
             SecondSet = this.wordMap.get(pair.b);
             
     	}
+		return null;
     }
 
     /**

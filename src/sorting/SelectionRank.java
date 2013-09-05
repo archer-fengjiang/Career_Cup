@@ -10,7 +10,4 @@ package sorting;
  *         Created Aug 22, 2012.
  */
 public class SelectionRank {
-    public int[] selectionRank(int[] arr){
-        
-    }
 }
