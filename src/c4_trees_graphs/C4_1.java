@@ -22,12 +22,10 @@ public class C4_1 {
 		if(root == null)
 			return builtList;
 		List<NodeBinaryTree> prevLvlNodes = new LinkedList<NodeBinaryTree>();
-		List<NodeBinaryTree> currLvlNodes = prevLvlNodes;
 		prevLvlNodes.add(root);
-		builtList.add(currLvlNodes);
-		while((currLvlNodes = this.getNextLvlNodes(prevLvlNodes)).size() > 0){
-			builtList.add(currLvlNodes);
-			prevLvlNodes = currLvlNodes;
+		builtList.add(prevLvlNodes);
+		while((prevLvlNodes = this.getNextLvlNodes(prevLvlNodes)).size() > 0){
+			builtList.add(prevLvlNodes);
 		}
 		return builtList;
 	}
